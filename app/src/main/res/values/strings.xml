@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">Agri Link</string>
+    <string name="welcome_to_the_voice_call_channel">Welcome to the Voice Call channel.</string>
+    <string name="agri_link_app">Agri Link App</string>
+    <string name="login_to_your_account">Login To Your Account</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="new_here_create_account">New Here? Create Account</string>
+    <string name="login">Login</string>
+    <string name="post">Post</string>
+    <string name="voice_call">Voice Call</string>
+    <string name="video_call">Video Call</string>
+    <string name="hello">Hello</string>
+    <string name="first_name">First Name</string>
+    <string name="create_a_new_account">Create a new account</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="register">Register</string>
+    <string name="enter_channel_name">Enter channel name</string>
+    <string name="audience">Audience</string>
+    <string name="broadcaster">Broadcaster</string>
+    <string name="enter_chat">Enter Chat</string>
+    <string name="todo">TODO</string>
+    <string name="todo2">TODO</string>
+    <string name="todo3">TODO</string>
+    <string name="profile_settings">Profile settings</string>
+    <string name="dashboard" />
+    <string name="dashboard2">Dashboard</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign in</string>
 </resources>

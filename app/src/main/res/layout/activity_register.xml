@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/agripic"
     tools:context=".RegisterActivity">
 
 
@@ -12,7 +13,7 @@
         android:layout_width="313dp"
         android:layout_height="37dp"
         android:fontFamily="sans-serif"
-        android:text="Agri Link App"
+        android:text="@string/agri_link_app"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#000000"
@@ -30,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Create a new account"
+        android:text="@string/create_a_new_account"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,35 +42,15 @@
         app:layout_constraintVertical_bias="0.19" />
 
     <EditText
-        android:id="@+id/mEdtFullName"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/black"
-        android:ems="10"
-        android:hint="Enter Full Name"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        android:textColor="#FF0000"
-        android:textColorHint="#EDE8E8"
-        android:textColorLink="#FFFFFF"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
-
-    <EditText
         android:id="@+id/mEdtEmail"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:autofillHints=""
         android:background="@color/black"
         android:ems="10"
-        android:hint="Enter Email"
+        android:hint="@string/enter_email"
         android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColor="#FF0000"
@@ -78,9 +59,10 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mEdtFullName"
-        app:layout_constraintVertical_bias="0.060000002" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.226" />
 
     <EditText
         android:id="@+id/mEdtPassword"
@@ -88,9 +70,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:autofillHints=""
         android:background="@color/black"
         android:ems="10"
-        android:hint="Enter Password"
+        android:hint="@string/enter_password"
         android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#FF0000"
@@ -102,56 +85,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mEdtEmail"
         app:layout_constraintVertical_bias="0.07999998"
-        app:passwordToggleEnabled="true"/>
-
-    <EditText
-        android:id="@+id/mEdtPhone"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/black"
-        android:ems="10"
-        android:hint="Enter Phone Number"
-        android:inputType="phone"
-        android:padding="10dp"
-        android:textColor="#FF0000"
-        android:textColorHint="#EDE8E8"
-        android:textColorLink="#FFFFFF"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mEdtPassword"
-        app:layout_constraintVertical_bias="0.120000005" />
+        app:passwordToggleEnabled="true" />
 
     <Button
         android:id="@+id/mBtnRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="127dp"
         android:layout_marginEnd="16dp"
-        android:background="#FDFAFA"
-        android:text="Register"
+        android:layout_marginBottom="152dp"
+        android:background="@color/white"
+        android:text="@string/register"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mEdtPhone"
-        app:layout_constraintVertical_bias="0.22000003" />
+        app:layout_constraintTop_toBottomOf="@+id/mEdtPassword" />
 
     <TextView
         android:id="@+id/mTvLoginH"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already Registered? Login Here"
+        android:text="@string/already_have_an_account_sign_in"
         android:textColor="#03092B"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/agora_theme"
         app:layout_constraintTop_toBottomOf="@+id/mBtnRegister"
         app:layout_constraintVertical_bias="0.26" />
 
@@ -162,11 +126,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mTvLoginH"
-        app:layout_constraintVertical_bias="0.19999999"
+        app:layout_constraintVertical_bias="0.46"
         tools:visibility="invisible" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

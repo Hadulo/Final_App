@@ -3,6 +3,7 @@ package com.example.agrilink
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -11,18 +12,26 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
-    var editTextEmail: EditText?= null
-    var editTextPassword: EditText?= null
-    var buttonLogin: Button?= null
-    var textViewRegister: TextView?= null
+    private var editTextEmail: EditText?= null
+    private var editTextPassword: EditText?= null
+    private var buttonLogin: Button?= null
+    private var textViewRegister: TextView?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        supportActionBar?.hide()
+        checkIfUserIsLoged()
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         editTextEmail = findViewById(R.id.mEdtEmail)
         editTextPassword = findViewById(R.id.mEdtPassword)
         buttonLogin = findViewById(R.id.mBtnLogin)
         textViewRegister = findViewById(R.id.mTvRegisterH)
         firebaseAuth = FirebaseAuth.getInstance()
+
 
         buttonLogin!!.setOnClickListener {
             val userEmail = editTextEmail!!.text.toString().trim()
@@ -30,26 +39,42 @@ class LoginActivity : AppCompatActivity() {
 
             //Check if the user has submitted empty fields
             if (userPassword.length < 6) {
-                editTextPassword!!.setError("Password must be  6 Characters and above")
+                editTextPassword!!.error = "Password must be  6 Characters and above"
                 editTextPassword!!.requestFocus()
             }
             if (userEmail.isEmpty()){
-                editTextEmail!!.setError("Please fill in this field!!!")
+                editTextEmail!!.error = "Please fill in this field!!!"
                 editTextEmail!!.requestFocus()
             }else if (userPassword.isEmpty()){
-                editTextPassword!!.setError("Please fill in this field!!!")
+                editTextPassword!!.error = "Please fill in this field!!!"
                 editTextPassword!!.requestFocus()
             }else{
                 firebaseAuth.createUserWithEmailAndPassword(userEmail ,userPassword).addOnCompleteListener {
                     if (it.isSuccessful){
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
+                        finish()
 
                         Toast.makeText(
                             baseContext, "Success",
                             Toast.LENGTH_SHORT
                         ).show()
                     }else {
+                        firebaseAuth.createUserWithEmailAndPassword(userEmail, userPassword)
+                            .addOnCompleteListener {mTask->
+                                if (mTask.isSuccessful){
+                                    val intent = Intent(this, MainActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }else{
+
+                                    Toast.makeText(
+                                        baseContext, "Authentification Failed.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+
+                            }
                         //If fails to display message to user
 
                         Toast.makeText(
@@ -67,6 +92,13 @@ class LoginActivity : AppCompatActivity() {
         textViewRegister!!.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun checkIfUserIsLoged() {
+        if (firebaseAuth.currentUser != null){
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
         }
     }
 

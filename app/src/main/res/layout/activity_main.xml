@@ -45,41 +45,27 @@ android:orientation="vertical">
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
-            android:id="@+id/mTvName"
+            android:id="@+id/mTvDashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="First Name"
-            android:textColor="#344"
-            android:textSize="31sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/mIv1"
-            app:layout_constraintStart_toStartOf="@+id/mTvHello"
-            app:layout_constraintTop_toBottomOf="@+id/mTvHello" />
-
-        <ImageView
-            android:id="@+id/mIv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.943"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.148"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/mTvHello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:text="Hello"
+            android:layout_marginTop="32dp"
+            android:text="@string/dashboard2"
             android:textColor="#ffffff"
-            android:textSize="18sp"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.06"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/mIv1" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/mbtnSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Sign Out"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
@@ -115,7 +101,7 @@ android:orientation="vertical">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Video Call"
+                android:text="@string/video_call"
                 android:textAlignment="center"
                 android:textColor="#4c6d99"
                 android:textStyle="bold|italic" />
@@ -142,7 +128,7 @@ android:orientation="vertical">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Post"
+                android:text="@string/post"
                 android:textAlignment="center"
                 android:textColor="#4c6d99"
                 android:textStyle="bold|italic" />
@@ -168,7 +154,7 @@ android:orientation="vertical">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Voice Call"
+                android:text="@string/voice_call"
                 android:textAlignment="center"
                 android:textColor="#4c6d99"
                 android:textStyle="bold|italic" />
@@ -186,29 +172,17 @@ android:orientation="vertical">
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageInbox"
-            android:layout_width="99dp"
-            android:layout_height="63dp"
-            android:layout_marginTop="252dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/inbox" />
-
-        <TextView
-            android:id="@+id/mTvInbox"
+        <Button
+            android:id="@+id/profileBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Inbox"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold|italic"
+            android:layout_marginTop="172dp"
+            android:backgroundTint="@color/black"
+            android:text="@string/profile_settings"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageInbox" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
 

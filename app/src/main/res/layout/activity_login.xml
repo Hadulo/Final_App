@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/agripic"
     tools:context=".LoginActivity">
-
 
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_width="313dp"
         android:layout_height="37dp"
         android:fontFamily="sans-serif"
-        android:text="Agri Link App"
+        android:text="@string/agri_link_app"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#000000"
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Login To Your Account"
+        android:text="@string/login_to_your_account"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,9 +48,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:autofillHints=""
         android:background="@color/black"
         android:ems="10"
-        android:hint="Enter Email"
+        android:hint="@string/enter_email"
         android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColor="#FF0000"
@@ -69,9 +70,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:autofillHints=""
         android:background="@color/black"
         android:ems="10"
-        android:hint="Enter Password"
+        android:hint="@string/enter_password"
         android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#FF0000"
@@ -83,7 +85,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mEdtEmail"
         app:layout_constraintVertical_bias="0.07999998"
-        app:passwordToggleEnabled="true"/>
+        app:passwordToggleEnabled="true" />
 
     <Button
         android:id="@+id/mBtnLogin"
@@ -94,8 +96,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="120dp"
         android:background="#FDFAFA"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="#000000"
+        android:backgroundTint="@color/agora_theme"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="104dp"
-        android:text="New Here? Create Account"
+        android:text="@string/new_here_create_account"
         android:textColor="#03092B"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

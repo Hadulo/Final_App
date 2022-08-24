@@ -4,25 +4,36 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.view.WindowManager
+import android.widget.*
 import androidx.core.app.ActivityCompat
 import java.util.jar.Manifest
 
 class VideoChatActivity : AppCompatActivity() {
 
     var userRole = 0
+    var btnEndChat:Button ?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.channel_layout)
+        supportActionBar?.hide()
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+        btnEndChat = findViewById(R.id.mbnSubmit)
+        btnEndChat!!.setOnClickListener {
+            val intent = Intent(applicationContext, VideoChannelActivity::class.java)
+            startActivity(intent)
+        }
 
         requestPermission()
+
     }
     private fun requestPermission() {
       ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.RECORD_AUDIO),22)
     }
+
     fun onSubmit(view: TextView){
         val channelName = findViewById<View>(R.id.channel) as EditText
         val userRadioButton = findViewById<View>(R.id.radioGroup) as RadioGroup
@@ -41,4 +52,9 @@ class VideoChatActivity : AppCompatActivity() {
         intent.putExtra("User Role", userRole)
         startActivity(intent)
     }
+
+    fun onLocalAudioMuteClick(view: View) {}
+    fun onEndCallClicked(view: View) {}
+    fun onSwitchCameraClicked(view: View) {}
+
 }

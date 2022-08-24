@@ -4,6 +4,7 @@ import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.core.view.isVisible
@@ -22,10 +23,15 @@ class VideoChannelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.video_activity)
+        supportActionBar?.hide()
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         channelName = intent.getStringExtra("Channel Name")
         userRole = intent.getIntExtra("User Role", -1)
-        intentAngoraEgineAndJoinChannel()
+        intentAngoraEngineAndJoinChannel()
     }
 
     override fun onDestroy() {
@@ -35,7 +41,7 @@ class VideoChannelActivity : AppCompatActivity() {
         mRtcEngine = null
     }
 
-    fun intentAngoraEgineAndJoinChannel(){
+    private fun intentAngoraEngineAndJoinChannel(){
         initializeAngoraEgine()
         mRtcEngine!!.setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING)
         mRtcEngine!!.setClientRole(userRole)

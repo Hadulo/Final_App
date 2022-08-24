@@ -15,10 +15,8 @@
         android:layout_width="160dp"
         android:layout_height="284dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
         android:background="#85595656" />
 
@@ -40,10 +38,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
+                android:contentDescription="@string/todo"
                 android:onClick="onLocalAudioMuteClick"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/mute"
-                tools:ignore="OnClick" />
+                tools:ignore="OnClick,UsingOnClickInXml,DuplicateSpeakableTextCheck" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -53,7 +52,8 @@
                 android:onClick="onEndCallClicked"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/end_phone_call"
-                tools:ignore="OnClick" />
+                tools:ignore="OnClick,UsingOnClickInXml"
+                android:contentDescription="@string/todo2" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -63,7 +63,8 @@
                 android:onClick="onSwitchCameraClicked"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/rotatecam"
-                tools:ignore="OnClick" />
+                tools:ignore="OnClick,UsingOnClickInXml"
+                android:contentDescription="@string/todo3" />
 
         </LinearLayout>
     </LinearLayout>
