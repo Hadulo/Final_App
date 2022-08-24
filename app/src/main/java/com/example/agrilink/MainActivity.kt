@@ -27,10 +27,7 @@ class MainActivity : AppCompatActivity() {
 
 
         supportActionBar?.hide()
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+
 
         val videoCall = findViewById<ImageView>(R.id.myImageVideo)
 
@@ -47,6 +44,11 @@ class MainActivity : AppCompatActivity() {
         val profile = findViewById<Button>(R.id.profileBtn)
         profile.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+        val post = findViewById<ImageView>(R.id.imagePost)
+        post.setOnClickListener {
+            val intent = Intent(this, PostActivity::class.java)
             startActivity(intent)
         }
 

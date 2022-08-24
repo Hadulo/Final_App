@@ -19,10 +19,6 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         supportActionBar?.hide()
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
         editTextEmail = findViewById(R.id.mEdtEmail)
         editTextPassword = findViewById(R.id.mEdtPassword)
         buttonRegister  = findViewById(R.id.mBtnRegister)

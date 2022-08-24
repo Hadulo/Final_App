@@ -22,10 +22,7 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.hide()
         checkIfUserIsLoged()
 
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+
         editTextEmail = findViewById(R.id.mEdtEmail)
         editTextPassword = findViewById(R.id.mEdtPassword)
         buttonLogin = findViewById(R.id.mBtnLogin)
@@ -69,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
                                 }else{
 
                                     Toast.makeText(
-                                        baseContext, "Authentification Failed.",
+                                        baseContext, "Authentication Failed.",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
@@ -78,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
                         //If fails to display message to user
 
                         Toast.makeText(
-                            baseContext, "Authentification Failed.",
+                            baseContext, "Authentication Failed.",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
