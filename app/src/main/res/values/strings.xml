@@ -28,4 +28,5 @@
     <string name="dashboard2">Dashboard</string>
     <string name="already_have_an_account_sign_in">Already have an account? Sign in</string>
     <string name="profile">Profile</string>
+    <string name="log_out">Log Out</string>
 </resources>

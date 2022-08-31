@@ -32,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         buttonLogin!!.setOnClickListener {
             val userEmail = editTextEmail!!.text.toString().trim()
             val userPassword = editTextPassword!!.text.toString().trim()
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(userEmail,userPassword)
 
             //Check if the user has submitted empty fields
             if (userPassword.length < 6) {
@@ -58,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
                     }else {
                         firebaseAuth.createUserWithEmailAndPassword(userEmail, userPassword)
                             .addOnCompleteListener {mTask->
+
                                 if (mTask.isSuccessful){
                                     val intent = Intent(this, MainActivity::class.java)
                                     startActivity(intent)
@@ -89,6 +91,15 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun checkIfUserIsLogged() {
+        FirebaseAuth.getInstance()
+            if (firebaseAuth.currentUser != null){
+                startActivity(Intent(this,MainActivity::class.java))
+                finish()
+            }
+
     }
 
 
