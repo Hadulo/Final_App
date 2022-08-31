@@ -32,7 +32,7 @@ class RegisterActivity : AppCompatActivity() {
         buttonRegister!!.setOnClickListener {
             val userEmail = editTextEmail!!.text.toString().trim()
             val userPassword = editTextPassword!!.text.toString().trim()
-            hideProgressBar()
+
 
             //Check if the user has submitted empty fields
             if (userPassword.length < 6){
@@ -82,17 +82,8 @@ class RegisterActivity : AppCompatActivity() {
 
 
     }
-    private fun showProgressBar(){
-        dialog = Dialog(this@RegisterActivity)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.dialog_wait)
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.show()
-    }
-    private fun hideProgressBar(){
 
-        dialog.dismiss()
-    }
+
 
 
 }

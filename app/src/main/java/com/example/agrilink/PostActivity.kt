@@ -6,9 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -18,12 +16,18 @@ class PostActivity : AppCompatActivity() {
     var buttonChoose:Button ?= null
     var buttonUpload:Button ?= null
     var imageView:ImageView ?= null
+    var showUploads:TextView ?= null
+    var fileName:EditText ?= null
+    var progressBar:ProgressBar ?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
         imageView = findViewById(R.id.mImg)
         buttonChoose = findViewById(R.id.button)
         buttonUpload = findViewById(R.id.button2)
+        showUploads = findViewById(R.id.text_view_show_uploads)
+        fileName = findViewById(R.id.edit_text_file_name)
+        progressBar = findViewById(R.id.progress_bar)
 
         buttonChoose!!.setOnClickListener {
             startFileChooser()
@@ -33,7 +37,9 @@ class PostActivity : AppCompatActivity() {
         }
 
 
+
     }
+
 
     private fun upLoadFile() {
         if (filepath!=null){

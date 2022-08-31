@@ -29,4 +29,7 @@
     <string name="already_have_an_account_sign_in">Already have an account? Sign in</string>
     <string name="profile">Profile</string>
     <string name="please_wait">Please Wait...</string>
+    <string name="enter_file_name">Enter File Name</string>
+    <string name="show_uploads">Show Uploads</string>
+    <string name="name">Name</string>
 </resources>

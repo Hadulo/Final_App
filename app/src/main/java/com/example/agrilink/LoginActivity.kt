@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
-        checkIfUserIsLogged()
+
 
 
         editTextEmail = findViewById(R.id.mEdtEmail)
@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
         buttonLogin!!.setOnClickListener {
             val userEmail = editTextEmail!!.text.toString().trim()
             val userPassword = editTextPassword!!.text.toString().trim()
-            hideProgressBar()
+
             FirebaseAuth.getInstance().signInWithEmailAndPassword(userEmail,userPassword)
 
             //Check if the user has submitted empty fields
@@ -97,25 +97,8 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkIfUserIsLogged() {
-        FirebaseAuth.getInstance()
-            if (firebaseAuth.currentUser != null){
-                startActivity(Intent(this,MainActivity::class.java))
-                finish()
-            }
 
-    }
-    private fun showProgressBar(){
-        dialog = Dialog(this@LoginActivity)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.dialog_wait)
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.show()
-    }
-    private fun hideProgressBar(){
 
-        dialog.dismiss()
-    }
 
 
 }
