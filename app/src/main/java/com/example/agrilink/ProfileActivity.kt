@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AlertDialogLayout
 import com.example.agrilink.databinding.*
+import com.example.agrilink.databinding.ActivityProfileBinding
 import com.google.android.gms.auth.api.signin.internal.Storage
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -41,7 +42,7 @@ class ProfileActivity : AppCompatActivity() {
             val intent = Intent()
             intent.action = Intent.ACTION_GET_CONTENT
             intent.type = "image/*"
-            startActivityForResult(intent, 1)
+            startActivityForResult(intent, 0)
         }
 
         supportActionBar?.hide()

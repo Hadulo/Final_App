@@ -1,13 +1,12 @@
 package com.example.agrilink
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -20,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
-        checkIfUserIsLoged()
+        checkIfUserIsLogged()
 
 
         editTextEmail = findViewById(R.id.mEdtEmail)
@@ -92,11 +91,5 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkIfUserIsLoged() {
-        if (firebaseAuth.currentUser != null){
-            startActivity(Intent(this,MainActivity::class.java))
-            finish()
-        }
-    }
 
 }

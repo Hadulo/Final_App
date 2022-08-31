@@ -1,12 +1,12 @@
 package com.example.agrilink
 
 import android.graphics.PorterDuff
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import io.agora.rtc.Constants
 import io.agora.rtc.IRtcEngineEventHandler
@@ -51,7 +51,7 @@ class VideoChannelActivity : AppCompatActivity() {
             setupLocalVideo()
         }else{
             val localVideoCanvas = findViewById<View>(R.id.local_video_view_container)
-            localVideoCanvas.isVisible = false
+            localVideoCanvas?.isVisible = false
         }
         joinChannel()
     }

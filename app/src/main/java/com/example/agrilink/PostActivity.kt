@@ -3,14 +3,13 @@ package com.example.agrilink
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
@@ -38,10 +37,10 @@ class PostActivity : AppCompatActivity() {
 
     private fun upLoadFile() {
         if (filepath!=null){
-            var pd = ProgressDialog(this)
+            val pd = ProgressDialog(this)
             pd.setTitle("Uploading")
             pd.show()
-            var imageRef:StorageReference = FirebaseStorage.getInstance().reference.child("images/pic.jpg")
+            val imageRef:StorageReference = FirebaseStorage.getInstance().reference.child("images/pic.jpg")
             imageRef.putFile(filepath)
                 .addOnSuccessListener {p0 ->
                     Toast.makeText(applicationContext, "File is Uploaded",Toast.LENGTH_LONG).show()
@@ -51,14 +50,14 @@ class PostActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext,p0.message, Toast.LENGTH_LONG).show()
                 }
                 .addOnProgressListener {p0 ->
-                        var progress :Double = (100.0 * p0.bytesTransferred) / p0.totalByteCount
+                        val progress :Double = (100.0 * p0.bytesTransferred) / p0.totalByteCount
                         pd.setMessage("Uploaded ${progress.toInt()}%")
                 }
         }
     }
 
     private fun startFileChooser() {
-        var i = Intent()
+        val i = Intent()
         i .setType("image/*")
         i.setAction(Intent.ACTION_GET_CONTENT)
         startActivityForResult(Intent.createChooser(i, "Chose Picture"),111)
@@ -69,7 +68,7 @@ class PostActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode==111 && resultCode == Activity.RESULT_OK && data != null){
             filepath = data.data!!
-            var bitmap = MediaStore.Images.Media.getBitmap(contentResolver,filepath)
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver,filepath)
             imageView?.setImageBitmap(bitmap)
         }
     }
