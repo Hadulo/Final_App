@@ -17,7 +17,6 @@ class RegisterActivity : AppCompatActivity() {
     private var editTextPassword: EditText?= null
     private var buttonRegister: Button?= null
     private var textViewLogin: TextView?= null
-    private lateinit var dialog: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

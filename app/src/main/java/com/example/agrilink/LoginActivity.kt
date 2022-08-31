@@ -17,7 +17,6 @@ class LoginActivity : AppCompatActivity() {
     private var editTextPassword: EditText?= null
     private var buttonLogin: Button?= null
     private var textViewRegister: TextView?= null
-    private lateinit var dialog: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
