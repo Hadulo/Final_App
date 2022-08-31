@@ -53,6 +53,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-database:20.0.5'
     implementation 'com.google.firebase:firebase-storage:20.0.1'
+    implementation 'com.firebase-ui-auth:3.2.2'
+    implementation 'com.google.fiebase:firebase-firestore:11.8.0'
+    implementation 'com.firebaseui:firebase-ui-storage:3.2.2'
 
     implementation 'com.github.agorabuilder:native-full-sdk:3.7.0'
 

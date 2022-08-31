@@ -3,23 +3,17 @@ package com.example.agrilink
 import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
-import android.view.WindowManager
-import android.view.WindowManager.LayoutParams.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.AlertDialogLayout
-import com.example.agrilink.databinding.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.agrilink.databinding.ActivityProfileBinding
-import com.google.android.gms.auth.api.signin.internal.Storage
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import java.lang.ref.Reference
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
@@ -42,7 +36,7 @@ class ProfileActivity : AppCompatActivity() {
             val intent = Intent()
             intent.action = Intent.ACTION_GET_CONTENT
             intent.type = "image/*"
-            startActivityForResult(intent, 0)
+            startActivityForResult(intent, 1)
         }
 
         supportActionBar?.hide()
@@ -61,13 +55,18 @@ class ProfileActivity : AppCompatActivity() {
 
                     if (it.isSuccessful){
                         uploadProfilePic()
+                        startActivity(Intent(this,MainActivity::class.java))
+                        finish()
                     }else{
                         hideProgressBar()
                         Toast.makeText(this@ProfileActivity, "Failed to update profile",Toast.LENGTH_SHORT).show()
                     }
                 }
             }
+
+
         }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -103,4 +102,5 @@ class ProfileActivity : AppCompatActivity() {
 
         dialog.dismiss()
     }
+
 }

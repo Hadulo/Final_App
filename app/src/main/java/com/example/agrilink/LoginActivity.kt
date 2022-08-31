@@ -1,7 +1,9 @@
 package com.example.agrilink
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -15,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
     private var editTextPassword: EditText?= null
     private var buttonLogin: Button?= null
     private var textViewRegister: TextView?= null
+    private lateinit var dialog: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -32,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
         buttonLogin!!.setOnClickListener {
             val userEmail = editTextEmail!!.text.toString().trim()
             val userPassword = editTextPassword!!.text.toString().trim()
+            hideProgressBar()
             FirebaseAuth.getInstance().signInWithEmailAndPassword(userEmail,userPassword)
 
             //Check if the user has submitted empty fields
@@ -100,6 +104,17 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
 
+    }
+    private fun showProgressBar(){
+        dialog = Dialog(this@LoginActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_wait)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.show()
+    }
+    private fun hideProgressBar(){
+
+        dialog.dismiss()
     }
 
 
