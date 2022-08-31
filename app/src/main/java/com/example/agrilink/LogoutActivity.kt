@@ -12,7 +12,7 @@ class LogoutActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_logout)
 
         //initialize firebase auth object
         auth = FirebaseAuth.getInstance()
