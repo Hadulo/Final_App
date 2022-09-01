@@ -31,6 +31,10 @@ class ProfileActivity : AppCompatActivity() {
         dialog2 = AlertDialog.Builder(this)
             .setMessage("Updating Profile...")
             .setCancelable(false)
+        binding.btnview.setOnClickListener {
+            startActivity(Intent(this,UserProfileActivity::class.java))
+
+        }
 
         binding.userImage.setOnClickListener {
             val intent = Intent()
@@ -51,7 +55,7 @@ class ProfileActivity : AppCompatActivity() {
 
             val user = User(name,email,phone)
             if (uid != null){
-                databaseReference.child(uid).setValue(user).addOnCompleteListener {
+                databaseReference.child(uid.toString()).setValue(user).addOnCompleteListener {
 
                     if (it.isSuccessful){
                         uploadProfilePic()
@@ -82,7 +86,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun uploadProfilePic() {
         imageUri = Uri.parse("android.resource://$packageName/${R.layout.activity_profile}")
-        storageReference = FirebaseStorage.getInstance().getReference("Users/"+auth.currentUser?.uid)
+        storageReference = FirebaseStorage.getInstance().getReference("Users/"+auth.currentUser?.uid+".jpg")
         storageReference.putFile(imageUri).addOnSuccessListener {
             hideProgressBar()
             Toast.makeText(this@ProfileActivity, "Profile successfully updated", Toast.LENGTH_SHORT).show()

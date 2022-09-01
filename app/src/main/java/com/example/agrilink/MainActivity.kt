@@ -9,10 +9,11 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
+    var signOut:Button ?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val signOut = findViewById<Button>(R.id.mbnSubmit)
+
         firebaseAuth = FirebaseAuth.getInstance()
 
 

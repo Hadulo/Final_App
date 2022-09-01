@@ -29,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
         buttonLogin = findViewById(R.id.mBtnLogin)
         textViewRegister = findViewById(R.id.mTvRegisterH)
         firebaseAuth = FirebaseAuth.getInstance()
+        checkIfUserIsLogged()
 
 
         buttonLogin!!.setOnClickListener {
@@ -51,14 +52,16 @@ class LoginActivity : AppCompatActivity() {
             }else{
                 firebaseAuth.createUserWithEmailAndPassword(userEmail ,userPassword).addOnCompleteListener {
                     if (it.isSuccessful){
+
+
+                        Toast.makeText(
+                            this, "Success",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
-
-                        Toast.makeText(
-                            baseContext, "Success",
-                            Toast.LENGTH_SHORT
-                        ).show()
                     }else {
                         firebaseAuth.createUserWithEmailAndPassword(userEmail, userPassword)
                             .addOnCompleteListener {mTask->
@@ -76,12 +79,6 @@ class LoginActivity : AppCompatActivity() {
                                 }
 
                             }
-                        //If fails to display message to user
-
-                        Toast.makeText(
-                            baseContext, "Authentication Failed.",
-                            Toast.LENGTH_SHORT
-                        ).show()
                     }
                 }.addOnFailureListener { exception ->
                     Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
@@ -93,6 +90,14 @@ class LoginActivity : AppCompatActivity() {
         textViewRegister!!.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+        }
+
+    }
+    private fun checkIfUserIsLogged(){
+
+        if (firebaseAuth.currentUser !=null){
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
         }
     }
 

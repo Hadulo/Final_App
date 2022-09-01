@@ -25,8 +25,6 @@ class PostActivity : AppCompatActivity() {
         imageView = findViewById(R.id.mImg)
         buttonChoose = findViewById(R.id.button)
         buttonUpload = findViewById(R.id.button2)
-        showUploads = findViewById(R.id.text_view_show_uploads)
-        fileName = findViewById(R.id.edit_text_file_name)
         progressBar = findViewById(R.id.progress_bar)
 
         buttonChoose!!.setOnClickListener {
